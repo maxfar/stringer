@@ -1,9 +1,18 @@
 language: node_js
 node_js:
-  - 6
+- 6
 cache:
   directories:
-    - node_modules
+  - node_modules
 script:
-  - npm test
-  - npm run build
+- npm test
+- npm run build
+deploy:
+  provider: s3
+  access_key_id: AKIAJPJOKJLPCWXJIOQQ
+  secret_access_key:
+    secure: B4mT9R6Qj+Iip5tDLUmspBYaoZGjXjE5ux5STpRdyGYnrGsIKTvvuraMBknfX6SoFKL4hUiBV1DZifKyNKGpqi/k6a2GrGgUWUZCHuN8kyMHXKO3aO+/U3+nWk0pbQ4+zrqNpc+dU+4O0TXCsyIkZLDrNl5XoBR8Femtu6NMjydsMMb2nMHce4ZnFcOz5bfErIikrHiKgZgc1rFgOp5zeMK/lZcM1aAfDuGWfxuFO+RdvHbb12NP14iciLMJdAXY+wqWeXCFcw98E2Qy0xPAlb3rYpZnEMIdvemnu31hpUVURTSVE7yq/ru+rYZJQ4TQODitimdL29q/BnV/Q2CQdRe0BCAYFmbncH4rdg8gdUhR1FeyWOzaL7yGAzT9OG1/tScyHtvgSEpwv/Ujz+MMwhzV3Hf9x7zm+j4MmeyTVRZ/qFzqqfaRh09NgQSKpYhbVljCSL1ul3tjYmp2HmRVz+fBcpCImw70DtpWP+lBQmnGOeBo+51GaNHCymgLljhxRkar589xWnUu9L/U1KE1eRhetFqH9CRm+OySFAipxtWvpWiWP7c4cCbcWljYGi0DaukyN1aBFN6wcRVxfA+eFL6ci3pfWNaBbXkF8pMKRZSsbSpc4o+BA+PGkmItLg/g4qKiJ2S3ZZdSiPZNCQWUAB3i789pS0IQeYMzNutV+ws=
+  bucket: stringerer
+  skip_cleanup: true
+  region: eu-west-1
+  local_dir: build
